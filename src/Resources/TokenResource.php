@@ -6,11 +6,11 @@ use App\Models\User;
 use Filament\Facades\Filament;
 use Filament\Forms\Components\Actions\Action;
 use Filament\Forms\Components\CheckboxList;
-use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
+use Filament\Schemas\Components\Section;
 use Filament\Tables;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Columns\TextColumn;
@@ -33,7 +33,7 @@ class TokenResource extends Resource
         return config('api-service.navigation.token.should_register_navigation', false);
     }
 
-    public static function form(Schema $schema): Form
+    public static function form(Schema $schema): Schema
     {
         return $schema
              ->components([
