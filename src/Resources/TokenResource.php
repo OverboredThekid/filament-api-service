@@ -9,7 +9,7 @@ use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Actions\DeleteAction;
@@ -33,10 +33,10 @@ class TokenResource extends Resource
         return config('api-service.navigation.token.should_register_navigation', false);
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Form
     {
-        return $form
-            ->schema([
+        return $schema
+             ->components([
                 Section::make( __('api-service::api-service.section.general'))
                     ->schema([
                         TextInput::make('name')
